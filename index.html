@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ata de Reunião de Conselho - Casa Goianita</title>
+    <!-- Fontes Oficiais -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* --- Atmosfera (Backgrounds) --- */
+            --live-deep: #06192a;
+            /* --- Superfícies (Refractive Glass) --- */
+            --live-glass: rgba(10, 36, 61, 0.75);
+            --live-glass-hover: rgba(15, 45, 75, 0.90);
+            --glass-blur: blur(16px) saturate(180%);
+            /* --- Luz & Ação --- */
+            --live-accent: #00e800;
+            --live-accent-dim: rgba(0, 232, 0, 0.15);
+            --kinetic-gradient: linear-gradient(90deg, #ffffff 0%, #cccccc 50%, #00e800 100%);
+            /* --- Física de Animação --- */
+            --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-fluid: cubic-bezier(0.4, 0.0, 0.2, 1);
+            /* --- Bordas --- */
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(0, 232, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--live-deep);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 40px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(6, 25, 42, 1), rgba(6, 25, 42, 0));
+        }
+
+        .logo {
+            width: 180px;
+            filter: drop-shadow(0 0 10px rgba(0, 232, 0, 0.3));
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 100px 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            background: var(--kinetic-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle-header {
+            text-align: center;
+            color: var(--live-accent);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 50px;
+        }
+
+        /* --- Estilo Analítico (Merriweather) para o Corpo da Ata --- */
+        .ata-content {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #e0e0e0;
+        }
+
+        .card {
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.4s var(--spring-bounce);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-active);
+            background: var(--live-glass-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--live-accent-dim);
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: var(--live-accent);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2 i {
+            font-size: 1.4rem;
+            opacity: 0.8;
+        }
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 3px solid var(--live-accent);
+        }
+
+        .meta-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #888;
+            display: block;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--live-accent);
+            font-weight: bold;
+        }
+
+        strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: var(--live-accent-dim);
+            border: 1px solid var(--border-active);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .badge-board { background: rgba(0, 232, 0, 0.2); color: #00e800; border: 1px solid #00e800; }
+        .badge-consultant { background: rgba(0, 150, 255, 0.2); color: #00b0ff; border: 1px solid #00b0ff; }
+
+        .link-ai {
+            color: var(--live-accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--live-accent);
+            transition: 0.3s;
+        }
+
+        .link-ai:hover {
+            color: #fff;
+            background: var(--live-accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer a {
+            color: var(--live-accent);
+            text-decoration: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png" alt="Live Consultoria" class="logo">
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h1>Ata de Reunião de Conselho</h1>
+            <p class="subtitle-header">Estratégia, Governança e Compliance</p>
+        </section>
+
+        <div class="card meta-info">
+            <div class="meta-item">
+                <span class="meta-label">Data</span>
+                <span class="meta-value">27 de Janeiro de 2026</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Horário</span>
+                <span class="meta-value">09:15h às 12:10h</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Local</span>
+                <span class="meta-value">Unidade T4, Goiânia - GO</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Status</span>
+                <span class="meta-value">Oficial / Vigente</span>
+            </div>
+        </div>
+
+        <div class="ata-content">
+            <!-- Participantes -->
+            <div class="card">
+                <h2><i class="fa-solid fa-users"></i> 1. Participantes e Papéis</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <strong>Membros do Conselho:</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Sr. Carlos <span class="badge badge-board">Sócio-Proprietário</span></li>
+                            <li>Kuruka <span class="badge badge-board">Sócio-Proprietário</span></li>
+                            <li>Luiz Portal <span class="badge badge-board">Estratégia</span></li>
+                            <li>Cláudia <span class="badge badge-board">Gestão</span></li>
+                            <li>Silvana <span class="badge badge-board">Gestão</span></li>
+                            <li>Elber <span class="badge badge-board">Vendas</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Consultores Externos:</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Cléber <span class="badge badge-consultant">IA & Inovação</span></li>
+                            <li>Phillip <span class="badge badge-consultant">Financeiro & Processos</span></li>
+                            <li>Eduardo <span class="badge badge-consultant">Sistemas (Olist/Tiny)</span></li>
+                            <li>Khelven <span class="badge badge-consultant">Financeiro & Operações</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infraestrutura -->
+            <div class="card">
+                <h2><i class="fa-solid fa-microchip"></i> 2. Infraestrutura de TI e Conectividade</h2>
+                <p>A reunião expôs que a infraestrutura atual (hardware e internet) é um gargalo crítico que pode inviabilizar a performance do novo sistema se não for tratada imediatamente.</p>
+                <ul style="margin-top: 20px;">
+                    <li><strong>Substituição de Máquinas:</strong> Ficou decidido que as máquinas atuais são obsoletas para o novo sistema. O uso do <strong>Windows XP</strong> é um impeditivo crítico; por ser um sistema de 15 anos atrás, ele não processa a internet de fibra óptica, limitando a banda e causando travamentos no ERP. A estratégia adotada será um modelo híbrido:
+                        <ul>
+                            <li><strong>Locação:</strong> Para posições de frente de loja (caixas e atendimento), garantindo manutenção rápida e substituição em 45min a 1h em caso de falha.</li>
+                            <li><strong>Compra:</strong> O computador da <strong>Érica (Financeiro)</strong> exige compra imediata de uma máquina de alta performance e segurança, devido ao uso de certificados digitais e tokens bancários, não sendo recomendado o aluguel neste caso específico.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Conectividade (Starlink):</strong> Cléber e Luiz validaram que, embora haja dúvidas sobre o desempenho em chuvas, o custo da Starlink baixou (aprox. R$ 800 o equipamento e R$ 184 a mensalidade). A <strong>Starlink Empresarial</strong> foi solicitada como solução de redundância ou principal devido aos constantes roubos de cabos de fibra ótica na região da 85.</li>
+                </ul>
+            </div>
+
+            <!-- Inventário -->
+            <div class="card">
+                <h2><i class="fa-solid fa-boxes-stacked"></i> 3. Estratégia de Inventário (Balanço)</h2>
+                <p>Para garantir a virada de sistema (Olist) na segunda-feira seguinte à reunião, foi definida uma força-tarefa de contagem de estoque no fim de semana.</p>
+                <ul style="margin-top: 20px;">
+                    <li><strong>Metodologia:</strong> Utilização de <strong>celulares Android</strong> (pessoais e da empresa) transformados em coletores de dados através do aplicativo do sistema. Eduardo e Cléber confirmaram que a leitura via câmera substitui com eficácia os coletores antigos.</li>
+                    <li><strong>Logística:</strong> Serão necessários cerca de 10 aparelhos. A equipe, sócios e familiares (incluindo netos e sobrinhos) foram convocados para realizar a contagem, iniciando pelas filiais (135 e T4) e concentrando-se na Matriz (85) no domingo.</li>
+                </ul>
+            </div>
+
+            <!-- Impasse Fiscal -->
+            <div class="card">
+                <h2><i class="fa-solid fa-file-invoice-dollar"></i> 4. O Impasse Fiscal: Castor vs. Virtual</h2>
+                <p>A reunião revelou uma tensão estratégica significativa provocada pela restrição de crédito e o histórico de Recuperação Judicial (RJ).</p>
+                <ul style="margin-top: 20px;">
+                    <li><strong>O Dilema da Compra:</strong> A empresa <strong>Virtual</strong> (sucessora das empresas em RJ) não possui crédito na praça; fornecedores só vendem à vista. A empresa <strong>Castor</strong> (Simples Nacional) possui crédito e prazos estendidos (30 a 120 dias).</li>
+                    <li><strong>O Conflito Operacional:</strong> Atualmente compra-se pela Castor (para ter prazo), mas vende-se pela Virtual, gerando um "buraco" fiscal. 
+                        <div class="highlight-box">
+                            <strong>Alerta da Consultoria:</strong> Luiz Portal alertou veementemente contra a prática de "comprar na Castor e dar entrada/venda na Virtual sem nota", classificando como risco fiscal inaceitável. O sistema Olist amarra a entrada ao XML, impedindo manobras sem nota de transferência.
+                        </div>
+                    </li>
+                    <li><strong>Venda Segregada:</strong> Discutiu-se a possibilidade de "duas lojas dentro de uma" (Store-in-Store), onde o cliente passaria dois cartões. Foi considerado comercialmente desastroso para a experiência do cliente.</li>
+                    <li><strong>Solução Estrutural (Fusão):</strong> A solução definitiva encaminhada é jurídica: a <strong>Castor adquirir a Virtual</strong> ou integralizar o estoque, assumindo os passivos da RJ, para unificar a operação em um único CNPJ robusto.</li>
+                </ul>
+            </div>
+
+            <!-- Governança Financeira -->
+            <div class="card">
+                <h2><i class="fa-solid fa-scale-balanced"></i> 5. Governança Financeira e Disciplina dos Sócios</h2>
+                <p>A reunião expôs "buracos" de informação financeira (cerca de <strong>R$ 130.000,00</strong> em divergências no fechamento de dezembro) causados pela falta de registro de pagamentos informais ("Cofre").</p>
+                
+                <div class="highlight-box">
+                    <strong>Decisão Mandatória:</strong> Ficou estritamente <strong>PROIBIDO</strong> o pagamento de qualquer despesa (via Pix, cartão corporativo ou espécie do cofre) sem que o comprovante seja enviado imediatamente para a Érica. 
+                    <br><br>
+                    <strong>Objetivo:</strong> Eliminar o "limbo" de informação. No sistema antigo, sobrava dinheiro virtualmente mas faltava no banco. Agora, Érica tem autoridade para cobrar os sócios (Sr. Carlos e Curuca). O registro deve ser no ato da transação para que o fluxo de caixa no Olist seja real e auditável minuto a minuto.
+                </div>
+
+                <ul style="margin-top: 20px;">
+                    <li><strong>Gestão de Pessoas:</strong> Érica está sobrecarregada há quase 6 anos sem férias. Foi realizada a seleção da candidata <strong>Leandra</strong> (vaga da Geovana). Ela iniciará o teste presencial na próxima <strong>quinta-feira</strong>, sob supervisão da Érica, para assumir funções operacionais (cobrança/DP).</li>
+                </ul>
+            </div>
+
+            <!-- IA e Digital -->
+            <div class="card">
+                <h2><i class="fa-solid fa-robot"></i> 6. Suporte via IA e Mercado Digital</h2>
+                <ul style="margin-top: 20px;">
+                    <li><strong>IA de Suporte Operacional:</strong> Foi apresentada a ferramenta que absorveu todos os vídeos e manuais do Olist para autonomia dos conselheiros.
+                        <br><strong>Acesse aqui:</strong> <a href="https://notebooklm.google.com/notebook/30af3aec-b4d1-44bb-abc3-d85e16a672b4" class="link-ai" target="_blank">Base de Conhecimento IA Goianita</a>
+                    </li>
+                    <li><strong>Marketplaces:</strong> A decisão imediata é manter a Matriz 29 para não perder o ranking atual, com retaguarda preparada para integrar a Castor conforme a necessidade de fluxo de caixa de compras.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ₢ Powered by <a href="mailto:cleberdonato@ecossistemalive.com.br">Cléber Donato</a>
+    </footer>
+
+    <script>
+        // Simulação de comportamento cinético simples para o H1 conforme o scroll
+        window.addEventListener('scroll', () => {
+            const h1 = document.querySelector('h1');
+            const scrollPercent = window.scrollY / (document.body.offsetHeight - window.innerHeight);
+            h1.style.letterSpacing = (scrollPercent * 5) + 'px';
+        });
+    </script>
+</body>
+</html>
