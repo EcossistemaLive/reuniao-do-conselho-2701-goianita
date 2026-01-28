@@ -85,10 +85,9 @@
             margin-bottom: 50px;
         }
 
-        /* --- Estilo Analítico (Merriweather) para o Corpo da Ata --- */
         .ata-content {
             font-family: 'Merriweather', serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 300;
             color: #e0e0e0;
         }
@@ -153,6 +152,17 @@
             color: #fff;
         }
 
+        .meta-value a {
+            color: var(--live-accent);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .meta-value a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
         ul {
             list-style: none;
             padding-left: 5px;
@@ -180,17 +190,17 @@
         .highlight-box {
             background: var(--live-accent-dim);
             border: 1px solid var(--border-active);
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
             margin-top: 20px;
-            font-style: italic;
+            line-height: 1.8;
         }
 
         .badge {
             display: inline-block;
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             margin-top: 5px;
@@ -200,15 +210,26 @@
         .badge-consultant { background: rgba(0, 150, 255, 0.2); color: #00b0ff; border: 1px solid #00b0ff; }
 
         .link-ai {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: var(--live-accent);
             text-decoration: none;
             border-bottom: 1px dashed var(--live-accent);
             transition: 0.3s;
+            font-weight: 600;
         }
 
         .link-ai:hover {
             color: #fff;
             background: var(--live-accent);
+            padding: 0 5px;
+        }
+
+        .conclusion-box {
+            border-top: 2px solid var(--live-accent);
+            padding-top: 30px;
+            margin-top: 50px;
         }
 
         footer {
@@ -224,10 +245,10 @@
             text-decoration: none;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             .card { padding: 25px; }
+            .meta-info { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -240,7 +261,7 @@
     <div class="container">
         <section class="intro">
             <h1>Ata de Reunião de Conselho</h1>
-            <p class="subtitle-header">Estratégia, Governança e Compliance</p>
+            <p class="subtitle-header">Relatório Detalhado de Governança & Reestruturação</p>
         </section>
 
         <div class="card meta-info">
@@ -250,126 +271,139 @@
             </div>
             <div class="meta-item">
                 <span class="meta-label">Horário</span>
-                <span class="meta-value">09:15h às 12:10h</span>
+                <span class="meta-value">09:15h (Aprox. 3h de duração)</span>
             </div>
             <div class="meta-item">
                 <span class="meta-label">Local</span>
                 <span class="meta-value">Unidade T4, Goiânia - GO</span>
             </div>
             <div class="meta-item">
-                <span class="meta-label">Status</span>
-                <span class="meta-value">Oficial / Vigente</span>
+                <span class="meta-label">Gravação Oficial</span>
+                <span class="meta-value"><a href="https://drive.google.com/file/d/15k4pw5xLFB_o2Iex2XLsaAqOpCqGntjy/view?usp=sharing" target="_blank"><i class="fa-solid fa-microphone"></i> Ouvir Áudio</a></span>
             </div>
         </div>
 
         <div class="ata-content">
+            
             <!-- Participantes -->
             <div class="card">
                 <h2><i class="fa-solid fa-users"></i> 1. Participantes e Papéis</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                     <div>
                         <strong>Membros do Conselho:</strong>
-                        <ul style="margin-top: 10px;">
+                        <ul style="margin-top: 15px;">
                             <li>Sr. Carlos <span class="badge badge-board">Sócio-Proprietário</span></li>
                             <li>Kuruka <span class="badge badge-board">Sócio-Proprietário</span></li>
-                            <li>Luiz Portal <span class="badge badge-board">Estratégia</span></li>
+                            <li>Luiz Portal <span class="badge badge-board">Conselho Estratégico</span></li>
                             <li>Cláudia <span class="badge badge-board">Gestão</span></li>
                             <li>Silvana <span class="badge badge-board">Gestão</span></li>
                             <li>Elber <span class="badge badge-board">Vendas</span></li>
                         </ul>
                     </div>
                     <div>
-                        <strong>Consultores Externos:</strong>
-                        <ul style="margin-top: 10px;">
+                        <strong>Consultores:</strong>
+                        <ul style="margin-top: 15px;">
                             <li>Cléber <span class="badge badge-consultant">IA & Inovação</span></li>
                             <li>Phillip <span class="badge badge-consultant">Financeiro & Processos</span></li>
-                            <li>Eduardo <span class="badge badge-consultant">Sistemas (Olist/Tiny)</span></li>
-                            <li>Khelven <span class="badge badge-consultant">Financeiro & Operações</span></li>
+                            <li>Eduardo <span class="badge badge-consultant">Implantação Olist/Tiny</span></li>
+                            <li>Khelven <span class="badge badge-consultant">Financeiro, Operações & Logística</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Infraestrutura -->
+            <!-- TI -->
             <div class="card">
-                <h2><i class="fa-solid fa-microchip"></i> 2. Infraestrutura de TI e Conectividade</h2>
+                <h2><i class="fa-solid fa-server"></i> 2. Infraestrutura Tecnológica e Conectividade</h2>
                 <p>A reunião expôs que a infraestrutura atual (hardware e internet) é um gargalo crítico que pode inviabilizar a performance do novo sistema se não for tratada imediatamente.</p>
                 <ul style="margin-top: 20px;">
-                    <li><strong>Substituição de Máquinas:</strong> Ficou decidido que as máquinas atuais são obsoletas para o novo sistema. O uso do <strong>Windows XP</strong> é um impeditivo crítico; por ser um sistema de 15 anos atrás, ele não processa a internet de fibra óptica, limitando a banda e causando travamentos no ERP. A estratégia adotada será um modelo híbrido:
+                    <li><strong>Substituição de Máquinas:</strong> Ficou decidido que as máquinas atuais são obsoletas para o novo sistema. A estratégia adotada será um modelo híbrido: 
                         <ul>
-                            <li><strong>Locação:</strong> Para posições de frente de loja (caixas e atendimento), garantindo manutenção rápida e substituição em 45min a 1h em caso de falha.</li>
-                            <li><strong>Compra:</strong> O computador da <strong>Érica (Financeiro)</strong> exige compra imediata de uma máquina de alta performance e segurança, devido ao uso de certificados digitais e tokens bancários, não sendo recomendado o aluguel neste caso específico.</li>
+                            <li><strong>Locação de equipamentos</strong> para posições críticas (como caixas e atendimento), garantindo manutenção rápida (substituição em 45min a 1h) e menor custo inicial, enquanto se cria um plano de substituição gradual para as demais.</li>
+                            <li><strong>Prioridade Financeira:</strong> O computador da Érica (Financeiro) exige compra imediata de uma máquina de alta performance e segurança, devido ao uso de certificados digitais e tokens bancários, não sendo recomendado o aluguel neste caso específico.</li>
                         </ul>
                     </li>
-                    <li><strong>Conectividade (Starlink):</strong> Cléber e Luiz validaram que, embora haja dúvidas sobre o desempenho em chuvas, o custo da Starlink baixou (aprox. R$ 800 o equipamento e R$ 184 a mensalidade). A <strong>Starlink Empresarial</strong> foi solicitada como solução de redundância ou principal devido aos constantes roubos de cabos de fibra ótica na região da 85.</li>
+                    <li><strong>Conectividade (Starlink):</strong> Devido aos constantes roubos de cabos de fibra ótica na região, que deixam a loja sem sistema e impactam as vendas, foi solicitada a cotação e viabilidade técnica da internet <strong>Starlink Empresarial</strong> como solução de redundância ou principal. Cléber e Luiz validaram que, embora haja dúvidas sobre o desempenho em chuvas, o custo da Starlink baixou significativamente (R$ 800 o equipamento e R$ 184 a mensalidade).</li>
                 </ul>
             </div>
 
             <!-- Inventário -->
             <div class="card">
-                <h2><i class="fa-solid fa-boxes-stacked"></i> 3. Estratégia de Inventário (Balanço)</h2>
+                <h2><i class="fa-solid fa-barcode"></i> 3. Estratégia de Inventário (Balanço)</h2>
                 <p>Para garantir a virada de sistema (Olist) na segunda-feira seguinte à reunião, foi definida uma força-tarefa de contagem de estoque no fim de semana.</p>
                 <ul style="margin-top: 20px;">
-                    <li><strong>Metodologia:</strong> Utilização de <strong>celulares Android</strong> (pessoais e da empresa) transformados em coletores de dados através do aplicativo do sistema. Eduardo e Cléber confirmaram que a leitura via câmera substitui com eficácia os coletores antigos.</li>
-                    <li><strong>Logística:</strong> Serão necessários cerca de 10 aparelhos. A equipe, sócios e familiares (incluindo netos e sobrinhos) foram convocados para realizar a contagem, iniciando pelas filiais (135 e T4) e concentrando-se na Matriz (85) no domingo.</li>
+                    <li><strong>Metodologia:</strong> Utilização de celulares Android (pessoais e da empresa) transformados em coletores de dados através do aplicativo do sistema. Eduardo e Cléber confirmaram que a leitura via câmera substitui com eficácia os coletores antigos.</li>
+                    <li><strong>Logística:</strong> Serão necessários cerca de 10 aparelhos. A equipe, sócios e familiares foram convocados para realizar a contagem, iniciando pelas filiais (135 e T4) e concentrando-se na Matriz (85) no domingo.</li>
                 </ul>
             </div>
 
             <!-- Impasse Fiscal -->
             <div class="card">
-                <h2><i class="fa-solid fa-file-invoice-dollar"></i> 4. O Impasse Fiscal: Castor vs. Virtual</h2>
-                <p>A reunião revelou uma tensão estratégica significativa provocada pela restrição de crédito e o histórico de Recuperação Judicial (RJ).</p>
+                <h2><i class="fa-solid fa-building-columns"></i> 4. O Impasse Fiscal: Castor vs. Virtual (Aprofundamento)</h2>
+                <p>A reunião revela uma tensão estratégica significativa provocada pela restrição de crédito.</p>
                 <ul style="margin-top: 20px;">
-                    <li><strong>O Dilema da Compra:</strong> A empresa <strong>Virtual</strong> (sucessora das empresas em RJ) não possui crédito na praça; fornecedores só vendem à vista. A empresa <strong>Castor</strong> (Simples Nacional) possui crédito e prazos estendidos (30 a 120 dias).</li>
-                    <li><strong>O Conflito Operacional:</strong> Atualmente compra-se pela Castor (para ter prazo), mas vende-se pela Virtual, gerando um "buraco" fiscal. 
-                        <div class="highlight-box">
-                            <strong>Alerta da Consultoria:</strong> Luiz Portal alertou veementemente contra a prática de "comprar na Castor e dar entrada/venda na Virtual sem nota", classificando como risco fiscal inaceitável. O sistema Olist amarra a entrada ao XML, impedindo manobras sem nota de transferência.
-                        </div>
-                    </li>
-                    <li><strong>Venda Segregada:</strong> Discutiu-se a possibilidade de "duas lojas dentro de uma" (Store-in-Store), onde o cliente passaria dois cartões. Foi considerado comercialmente desastroso para a experiência do cliente.</li>
-                    <li><strong>Solução Estrutural (Fusão):</strong> A solução definitiva encaminhada é jurídica: a <strong>Castor adquirir a Virtual</strong> ou integralizar o estoque, assumindo os passivos da RJ, para unificar a operação em um único CNPJ robusto.</li>
+                    <li><strong>O Dilema da Compra:</strong> A empresa Virtual (sucessora das empresas em Recuperação Judicial - RJ) não possui crédito na praça; fornecedores só vendem à vista. A empresa Castor (Simples Nacional) possui crédito e prazos estendidos (30/60/90 dias).</li>
+                    <li><strong>O Conflito Operacional:</strong> O grupo compra pela Castor (para ter prazo), mas precisa vender pela Virtual (onde está a operação física e o cadastro do marketplace). Isso gera inconsistência fiscal e de estoque.</li>
+                    <li><strong>Solução Provisória Rejeitada:</strong> A consultoria alertou veementemente contra a prática de "comprar na Castor e dar entrada/venda na Virtual sem nota", classificando como risco fiscal inaceitável no novo modelo de gestão.</li>
+                    <li><strong>Solução de Venda Segregada:</strong> Discutiu-se a possibilidade de ter "duas lojas dentro de uma" (Store-in-Store), onde o cliente passaria dois cartões. Contudo, isso foi considerado comercialmente desastroso para a experiência do cliente.</li>
+                    <li><strong>Status do Marketplace:</strong> Confirmado que o cadastro atual no e-commerce está na Virtual. Curuca (sócio) insiste que o e-commerce deveria ser 100% Castor para alinhar a compra (crédito) com a venda. A consultoria esclareceu que migrar agora é possível (2 dias), mas exige decisão imediata.</li>
+                    <li><strong>Solução Estrutural (Fusão):</strong> A solução definitiva encaminhada é jurídica: a Castor (ou seus sócios) adquirir a Virtual ou integralizar o estoque da Virtual na Castor, assumindo os passivos da RJ, para unificar a operação em um único CNPJ robusto e legalizado.</li>
                 </ul>
             </div>
 
-            <!-- Governança Financeira -->
+            <!-- Governança -->
             <div class="card">
-                <h2><i class="fa-solid fa-scale-balanced"></i> 5. Governança Financeira e Disciplina dos Sócios</h2>
-                <p>A reunião expôs "buracos" de informação financeira (cerca de <strong>R$ 130.000,00</strong> em divergências no fechamento de dezembro) causados pela falta de registro de pagamentos informais ("Cofre").</p>
-                
-                <div class="highlight-box">
-                    <strong>Decisão Mandatória:</strong> Ficou estritamente <strong>PROIBIDO</strong> o pagamento de qualquer despesa (via Pix, cartão corporativo ou espécie do cofre) sem que o comprovante seja enviado imediatamente para a Érica. 
-                    <br><br>
-                    <strong>Objetivo:</strong> Eliminar o "limbo" de informação. No sistema antigo, sobrava dinheiro virtualmente mas faltava no banco. Agora, Érica tem autoridade para cobrar os sócios (Sr. Carlos e Curuca). O registro deve ser no ato da transação para que o fluxo de caixa no Olist seja real e auditável minuto a minuto.
+                <h2><i class="fa-solid fa-gavel"></i> 5. Governança Financeira e Disciplina dos Sócios</h2>
+                <div class="ata-text-exact">
+                    <p>A reunião expôs uma divergência de <strong>R$ 130.000,00</strong> no fechamento de dezembro, causada pelo fluxo de caixa informal ("Cofre").</p>
+                    
+                    <p style="margin-top: 15px;"><strong>O "Cofre" e Saques:</strong> Identificou-se que saques de aprox. R$ 30 mil/mês saem do banco para um cofre físico gerenciado pela Leila e Silvana, usado para pagamentos de gratificações e despesas "por fora".</p>
+                    
+                    <div class="highlight-box">
+                        <strong>O Novo Processo de Comprovantes:</strong>
+                        <p style="margin-top: 10px;"><strong>Definição Técnica:</strong> Ficou estritamente proibido o pagamento de qualquer despesa (seja via Pix, cartão corporativo ou espécie do cofre) sem que o comprovante seja enviado imediatamente para a Érica.</p>
+                        <p style="margin-top: 10px;"><strong>Por que isso foi decidido?</strong> Para eliminar o "limbo" de informação. No sistema antigo, sobrava dinheiro virtualmente mas faltava no banco. Agora, Érica tem autoridade para cobrar os sócios (Sr. Carlos e Curuca). O registro deve ser no ato da transação para que o fluxo de caixa no Olist seja real e auditável minuto a minuto.</p>
+                    </div>
                 </div>
 
-                <ul style="margin-top: 20px;">
-                    <li><strong>Gestão de Pessoas:</strong> Érica está sobrecarregada há quase 6 anos sem férias. Foi realizada a seleção da candidata <strong>Leandra</strong> (vaga da Geovana). Ela iniciará o teste presencial na próxima <strong>quinta-feira</strong>, sob supervisão da Érica, para assumir funções operacionais (cobrança/DP).</li>
-                </ul>
+                <div style="margin-top: 30px;">
+                    <p><strong>Nova Contratação:</strong> Foi realizada a seleção da candidata <strong>Leandra</strong> (vaga da Geovana). Ela iniciará o teste presencial na próxima quinta-feira, sob a supervisão direta da Érica, visando assumir as rotinas de cobrança e DP para que Érica foque na Controladoria e possa tirar suas férias acumuladas.</p>
+                    <p style="margin-top: 10px;">
+                        <i class="fa-solid fa-file-contract"></i> <strong>Documento Complementar:</strong> 
+                        <a href="https://ecossistemalive.github.io/Parecer-tecnico-Leandra/" class="link-ai" target="_blank">Acesse o Parecer Técnico da Candidata Leandra</a>
+                    </p>
+                </div>
             </div>
 
-            <!-- IA e Digital -->
+            <!-- IA -->
             <div class="card">
-                <h2><i class="fa-solid fa-robot"></i> 6. Suporte via IA e Mercado Digital</h2>
-                <ul style="margin-top: 20px;">
-                    <li><strong>IA de Suporte Operacional:</strong> Foi apresentada a ferramenta que absorveu todos os vídeos e manuais do Olist para autonomia dos conselheiros.
-                        <br><strong>Acesse aqui:</strong> <a href="https://notebooklm.google.com/notebook/30af3aec-b4d1-44bb-abc3-d85e16a672b4" class="link-ai" target="_blank">Base de Conhecimento IA Goianita</a>
-                    </li>
-                    <li><strong>Marketplaces:</strong> A decisão imediata é manter a Matriz 29 para não perder o ranking atual, com retaguarda preparada para integrar a Castor conforme a necessidade de fluxo de caixa de compras.</li>
-                </ul>
+                <h2><i class="fa-solid fa-microchip"></i> 6. IA de Suporte Operacional</h2>
+                <p>Foi apresentada a ferramenta de Inteligência Artificial que absorveu todos os vídeos e manuais do Olist. O objetivo é a autonomia dos conselheiros (Kuruka, Silvana, Cláudia e Elber) para dúvidas do dia a dia.</p>
+                <div style="margin-top: 15px;">
+                    <i class="fa-solid fa-brain"></i> <strong>Acesso à Central de IA:</strong> 
+                    <a href="https://notebooklm.google.com/notebook/30af3aec-b4d1-44bb-abc3-d85e16a672b4" class="link-ai" target="_blank">Clique para abrir a Base de Conhecimento Olist</a>
+                </div>
             </div>
+
+            <!-- Conclusão -->
+            <div class="card conclusion-box">
+                <h2><i class="fa-solid fa-flag-checkered"></i> Conclusão da Secretária</h2>
+                <p style="font-style: italic;">A reunião de 3 horas consolidou que a Casa Goianita não está apenas trocando de software, mas passando por um choque de governança. A resistência ao compliance fiscal foi confrontada pela consultoria, e a decisão de unificar as operações sob um CNPJ limpo (Castor/Fusão) é o caminho para recuperar o crédito e a escalabilidade no digital.</p>
+            </div>
+
         </div>
     </div>
 
     <footer>
-        ₢ Powered by <a href="mailto:cleberdonato@ecossistemalive.com.br">Cléber Donato</a>
+        ₢ Powered by <a href="mailto:cleberdonato@ecossistemalive.com.br">Cléber Donato</a> | Live Consultoria V6.0
     </footer>
 
     <script>
-        // Simulação de comportamento cinético simples para o H1 conforme o scroll
+        // Efeito cinético suave no título
         window.addEventListener('scroll', () => {
             const h1 = document.querySelector('h1');
             const scrollPercent = window.scrollY / (document.body.offsetHeight - window.innerHeight);
-            h1.style.letterSpacing = (scrollPercent * 5) + 'px';
+            h1.style.letterSpacing = (scrollPercent * 8) + 'px';
         });
     </script>
 </body>
